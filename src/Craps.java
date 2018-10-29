@@ -51,6 +51,7 @@ public class Craps {
         while (gameStatus == Status.CONTINUE)
         {
             sumOfDice = die1.rollDie() + die2.rollDie();
+            System.out.println("Sum of dice: "+sumOfDice);
 
             //check for a win
             if (sumOfDice == myPoint)
