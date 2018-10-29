@@ -21,6 +21,8 @@ public class Craps {
         //simulate rolling the dice
         int sumOfDice = die1.rollDie() + die2.rollDie();
 
+        int myPoint=0;
+
         Status gameStatus;
 
         switch(sumOfDice)
@@ -40,7 +42,7 @@ public class Craps {
 
             default:
                 gameStatus = Status.CONTINUE;
-                
+                myPoint=sumOfDice;
 
         }
 
