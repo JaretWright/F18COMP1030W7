@@ -20,6 +20,7 @@ public class Craps {
 
         //simulate rolling the dice
         int sumOfDice = die1.rollDie() + die2.rollDie();
+        System.out.println("Sum of dice: "+sumOfDice);
 
         int myPoint=0;
 
@@ -43,9 +44,28 @@ public class Craps {
             default:
                 gameStatus = Status.CONTINUE;
                 myPoint=sumOfDice;
-
+                System.out.printf("Point is %d%n", myPoint);
+                break;
         }
 
+        while (gameStatus == Status.CONTINUE)
+        {
+            sumOfDice = die1.rollDie() + die2.rollDie();
+
+            //check for a win
+            if (sumOfDice == myPoint)
+                gameStatus = Status.WON;
+
+            //check for a loss
+            if (sumOfDice == 7)
+                gameStatus = Status.LOST;
+        }//end of while loop
+
+        //display the outcomes
+        if (gameStatus == Status.WON)
+            System.out.println("Player wins");
+        else
+            System.out.println("The house wins");
     }
 
 
